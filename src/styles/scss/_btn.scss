@@ -1,0 +1,143 @@
+.v-btn {
+  font-weight: 400;
+  width: 100px;
+}
+
+#main_container {
+  display: grid;
+  grid-gap: 32px;
+
+  .v-form {
+    .v-btn {
+      background-color: $button_hover_red;
+      color: $button_hover_white;
+    }
+  }
+
+  .v-pagination {
+    .v-btn {
+      color: $text_secondary_color;
+      border-radius: 8px;
+      border: 1px solid $info;
+    }
+  }
+
+  .v-btn-toggle {
+    > .v-btn {
+      background-image: initial;
+      color: initial;
+    }
+  }
+
+  .v-data-table-footer__pagination {
+    .v-btn--icon.v-btn--density-default {
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 0.75rem;
+      margin-left: 1rem;
+    }
+  }
+
+  .v-btn.sql_btn {
+    background-image: none;
+    background-color: $button_sql_bg;
+    color: $text_color;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    height: 1.5rem;
+
+    &.selected {
+      background-color: $button_sql_selected_bg;
+    }
+
+    &.v-btn--disabled,
+    &.v-btn--disabled.v-btn--variant-elevated {
+      background-color: $button_sql_disabled_bg;
+      background: $button_sql_disabled_bg;
+      opacity: 0.4;
+    }
+  }
+
+  .v-switch {
+    .v-selection-control__wrapper {
+      width: auto;
+    }
+  }
+
+  .v-selection-control__wrapper {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+#main_nav_pin {
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.5rem;
+  position: absolute;
+  top: $header_height;
+  right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.5rem;
+}
+
+.v-navigation-drawer--rail {
+  .pin {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.5rem;
+    display: block;
+    position: absolute;
+    top: $header_height;
+    right: 0.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.5rem;
+    display: none;
+  }
+
+  &.v-navigation-drawer--is-hovering {
+    .pin {
+      width: 1.2rem;
+      height: 1.2rem;
+      font-size: 0.5rem;
+      display: block;
+      position: absolute;
+      top: $header_height;
+      right: 0.5rem;
+      -moz-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.v-navigation-drawer {
+  .v-navigation-drawer__content {
+    overflow-y: hidden;
+  }
+
+  &.v-navigation-drawer--is-hovering {
+    .v-navigation-drawer__content {
+      overflow-y: auto;
+    }
+  }
+}
+
+#btn_logout {
+  color: $text_color_light;
+}
+
+.v-btn.btn_confirm {
+  background-color: $button_hover_red;
+  color: $button_hover_white;
+}
+
+.v-btn.btn_cancel {
+  background-image: none;
+  background-color: $button_sql_bg;
+  color: $text_color;
+}

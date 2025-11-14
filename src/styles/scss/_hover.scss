@@ -1,0 +1,26 @@
+@media (hover: hover) {
+  html {
+    .v-field--variant-filled:hover .v-field__overlay {
+      opacity: calc(0.2 * var(--v-theme-overlay-multiplier));
+    }
+    // .v-data-table
+    //   .v-table__wrapper
+    //   > table
+    //   > thead
+    //   > tr
+    //   > th.v-data-table__th--sortable:hover,
+    // .v-data-table
+    //   .v-table__wrapper
+    //   > table
+    //   tbody
+    //   > tr
+    //   > th.v-data-table__th--sortable:hover {
+       
+    //   border: 1px $text_color dashed;
+    //   color: $text_color_light;
+    // }
+    .v-expansion-panel-title:hover{
+      color: $danger;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "baseURL": "https://172.24.101.63/TestWebAPI/api/Printer/",
+    "PPB_baseURL": "https://172.24.101.63/PPBWebAPI/api/",
+    "PPB_baseURL_": "https://localhost:44336//api/"
+}

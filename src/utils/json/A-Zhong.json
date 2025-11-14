@@ -1,0 +1,26 @@
+[
+  {
+    "header":"財務部",
+    "state":true,
+    "signer":"劉德華",
+    "signerNumber":"007439"
+  },
+  {
+    "header":"信託部",
+    "state":true,
+    "signer":"劉亦菲",
+    "signerNumber":"007432"
+  },
+  {
+    "header":"財富管理部",
+    "state":null,
+    "signer":"周杰倫",
+    "signerNumber":"007431"
+  },
+  {
+    "header":"會計部",
+    "state":null,
+    "signer":"糾結倫",
+    "signerNumber":"007435"
+  }
+]

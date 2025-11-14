@@ -1,0 +1,33 @@
+[
+  {
+    "title": "部室及人員權限設置",
+    "user":"admin",
+    "href": "/userstate"
+  },
+  {
+    "title": "部室及報表維護表",
+    "user":"admin",
+    "href": "/report"
+  },
+  {
+    "title": "申報作業上傳",
+    "user":"handle",
+    "href": "/formupload"
+  },
+  {
+    "title": "會辦案件",
+    "user":"handle",
+    "badge":true,
+    "href": "/wieecases"
+  },
+  {
+    "title": "案件查詢",
+    "user":"handle",
+    "href": "/casequery"
+  },
+  {
+    "title": "歷史案件查詢",
+    "user":"handle",
+    "href": "/casequerylog"
+  }
+]

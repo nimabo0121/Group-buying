@@ -1,0 +1,1 @@
+export const stepComponents = import.meta.glob('@/components/steps/**/*.vue')

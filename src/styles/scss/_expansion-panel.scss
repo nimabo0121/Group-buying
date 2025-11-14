@@ -1,0 +1,30 @@
+
+.v-expansion-panel:not(:first-child)::after{
+    content: none;
+}
+.v-expansion-panel-title{
+    height: 48px;
+    width: 228px;
+    font-size: 18px;
+    margin: auto;
+    
+}
+.v-expansion-panel--active > .v-expansion-panel-title{
+    // min-height: 48px;
+    // height: 48px;
+    // width: 228px;
+    border-radius: 4px;
+  }
+
+.v-expansion-panel__shadow{
+    box-shadow: none;
+
+}
+
+.v-expansion-panel-text__wrapper{
+    padding: 0px; 
+}
+
+.v-expansion-panel--active:not(:first-child), .v-expansion-panel--active + .v-expansion-panel {
+    margin-top: 0px;
+}

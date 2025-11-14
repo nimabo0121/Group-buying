@@ -1,0 +1,190 @@
+{
+  "zh-TW": {
+    "basic": {
+      "CompanyName": "永泓股份有限公司",
+      "CustomerCompanyName": "台中銀行"
+    },
+    "sys": {
+      "ConnectionStatusOk": "連線成功",
+      "ConnectionStatusError": "失去連線",
+      "ConnectionStatusConfirming": "連線確認中",
+      "Login": "登入",
+      "Logout": "登出",
+      "FontSize": "字體大小",
+      "FontSizeS": "小",
+      "FontSizeM": "中",
+      "FontSizeL": "大",
+      "BusinessBeforeYesterday": "上二營業日期",
+      "BusinessYesterday": "上一營業日期",
+      "BusinessToday": "當天作業日期",
+      "LocalPortSecondDeliverDate": "本埠次交日期",
+      "OutPortEntrustDeliverDate": "外埠委聯行日期"
+    },
+    "pageTitle": {
+      "CTC01270": "入帳日期查詢",
+      "InvalidLogin": "無效",
+      "DCB01270": "每日代收餘額",
+      "SAQ01270": "庫存量查詢",
+      "RCQ01270": "代收票據查詢",
+      "STA01270": "結清帳戶查詢",
+      "PCC10180": "備償票據查詢",
+      "CTR01270": "託收退票作業查詢",
+      "CMA01270": "主管放行作業",
+      "WEM_Monitor": "撤延變更監控作業",
+      "DSS01270": "分行票據查詢",
+      "DSS01270_01": "票據撤票作業",
+      "DSS01270_02": "票據延期作業",
+      "DSS01270_03": "票據變更作業"
+    },
+    "btn": {
+      "Search": "查詢",
+      "Refresh": "資料更新",
+      "DialogOK": "確定",
+      "Cancel": "取消",
+      "Apply": "確認申請",
+      "Back": "返回查詢",
+      "View": "檢視",
+      "Save": "儲存",
+      "Print": "列印",
+      "OK": "點收",
+      "Reply": "回復",
+      "Reject": "剔回",
+      "Confirm": "放行",
+      "AddData": "新增資料",
+      "CloseAccNo": "執行結清",
+      "ResultSearch": "傳送結果查詢",
+      "WEM_Monitor_01": "補印撤票通知單",
+      "WEM_Monitor_02": "補印延期通知單",
+      "WEM_Monitor_03": "補印變更通知單",
+      "DSS01270_01": "撤票申請",
+      "DSS01270_02": "延期申請",
+      "DSS01270_03": "變更申請",
+      "DetailReport": "明細報表",
+      "backMenu": "回選單",
+      "Logout": "登出",
+      "PrintPdf" : "列印報表",
+      "CancelPrint" : "取消列印"
+    },
+    "label": {
+      "Dept": "單位",
+      "LoginUser": "人員",
+      "WEMRejectDate": "撤票日期",
+      "WEMState": "點收狀態",
+      "CheckNo": "票號",
+      "QueryDate": "查詢日期",
+      "RejectDate": "退票日期",
+      "RejectState": "退票資料",
+      "CreditedDate": "入帳日期",
+      "CreditedState": "入帳狀態",
+      "RegionNo": "票據種類",
+      "DeptNo": "轉存分行",
+      "Account": "轉存科目",
+      "DepositNo": "轉存帳號",
+      "Percent": "維持率",
+      "RejectInfo": "當日退票",
+      "Count": "總筆數",
+      "Sum": "總金額",
+      "CountUnit": "筆",
+      "SumUnit": "元",
+      "Amount": "應徵提客票維持之授信金額",
+      "AmountUnit": "千元",
+      "PCC10180_01": "提供票據比率",
+      "PCC10180_02": "可融資金額",
+      "PCC10180_03": "合計融資金額",
+      "Subtotal": "小計",
+      "Total": "合計",
+      "Bank": "本行",
+      "WholeBank": "全行"
+    },
+    "form": {
+      "RulesRules": "此欄位為必填",
+      "WorkTimeTolong": "欄位長度不正確",
+      "AccIncorrect": "帳號不正確",
+      "AccRequired": "請輸入存款帳號",
+      "SameAcc": "輸入存款帳號不可與原存款帳號相同",
+      "DateRequired": "請輸入延期日期",
+      "GreaterDate": "延期日期不可小於等於到期日",
+      "AccNoExist": "發票號碼已存在",
+      "InvalidValue": "請輸入正確金額"
+    },
+    "error_msg": {
+      "PleaseEnterCorrectInfo": "請填寫正確資料！"
+    },
+    "h1": {
+      "regist": "登記專案時數",
+      "overview": "專案設定總覽",
+      "InvalidLogin": "無效"
+    },
+    "subtitle": {
+      "WEM_Monitor_01": "撤票",
+      "WEM_Monitor_02": "延期",
+      "WEM_Monitor_03": "變更",
+      "CMA01270_01": "撤票放行",
+      "CMA01270_02": "延期放行",
+      "CMA01270_03": "變更放行",
+      "ct02_03_01": "查詢條件設定",
+      "ct02_03_02": "查詢結果",
+      "ct02_03_03": "延期明細",
+      "ct02_03_04": "影像調閱",
+      "ct02_05_01": "批次監控狀態",
+      "ct02_05_02": "當日撤票統計",
+      "ct02_05_03": "當日延期統計",
+      "ct02_05_04": "日結狀態",
+      "MSM_receive_01": "回覆訊息串紀錄",
+      "MSM_receive_02": "回覆訊息",
+      "MSM_send_01": "分行清單",
+      "MSM_send_02": "傳送紀錄",
+      "WorkDateSetting_01": "目前營業日",
+      "WorkDateSetting_02": "下一營業日"
+    },
+    "sql": {
+      "Equal": "等於",
+      "NotEqual": "不等於",
+      "Greater": "大於",
+      "Less": "小於",
+      "NotLess": "大於等於",
+      "NotGreater": "小於等於",
+      "And": "且",
+      "Or": "或",
+      "Brackets": "括弧"
+    },
+    "dialogTitle": {
+      "Hint": "提示訊息",
+      "PrintReport": "報表列印",
+      "PrintNotice": "通知單列印",
+      "STA01270_Query": "結清交易結果查詢",
+      "DetailReport": "明細報表"
+    },
+    "dialogText": {
+      "notChecked": "尚未勾選資料",
+      "printChecked": "請勾選欲補印資料",
+      "ct02_03_01": "備註: 欲申請不同撤票理由時，請分次申請",
+      "ct02_03_02": "是否進行延期動作！",
+      "ct02_03_03": "輸入日期未大於「到期日期」！",
+      "ct02_03_04": "備註: 欲查詢不同查詢理由時，請分次查詢",
+      "AppBar": "請確認是否登出系統"
+    },
+    "hint": {
+      "WorkDateSetting_01": "藍色為下一營業日之當天作業日",
+      "WorkDateSetting_02": "綠色為目前營業日之當天作業日",
+      "WorkDateSetting_03": "紅色為假日"
+    },
+    "noDataText": {
+      "Query": "查無資料",
+      "CMA01270": "無待放行資料",
+      "CTR01270": "目前無退票資料",
+      "STA01270_01": "該帳戶無庫存及未入帳票據資料",
+      "STA01270_02": "無結清交易資料"
+    },
+    "invalidLogin":{
+      "invalidParam": "登入失敗，請由行內網路登入資訊管理系統，並確認是否有授權使用本系統"
+    },
+    "printer" :{
+      "PrinterCompany" : "台中商業銀行",
+      "PrinterReportName" : "== 備償帳戶代收票據查詢表 ==",
+      "PrinterReportTime" : "製表日期/時間：",
+      "PrinterUser" : "列印人員 : "
+
+    }
+  }
+}

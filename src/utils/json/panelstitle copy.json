@@ -1,0 +1,38 @@
+[
+  {
+    "type":"item",
+    "title": "補摺作業放行",
+    "user":"admin",
+    "href": "/home"
+  },
+  {
+    "type":"item",
+    "title": "首頁",
+    "user":"handle",
+    "href": "/home"
+  },
+  {
+    "type":"item",
+    "title": "存摺補登",
+    "user":"handle",
+    "href": "/PassBook_MUFR"
+  },
+  {
+    "type":"item",
+    "title": "存摺再登",
+    "user":"handle",
+    "href": "/PassBook_Again"
+  },
+  {
+    "type":"item",
+    "title": "存摺磁條重建",
+    "user":"handle",
+    "href": "/PassBook_Updata"
+  },
+  {
+    "type":"item",
+    "title": "存摺換發",
+    "user":"handle",
+    "href": "/PassBook_CH"
+  }
+]

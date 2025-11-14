@@ -1,0 +1,45 @@
+.v-navigation-drawer__content{
+  .img {
+    width: 160px;
+    height: 48px;
+  }
+}
+header {
+
+  &.v-toolbar {
+    height: 79px;
+
+    border-bottom: 1px solid $info;
+    display: flex;
+    align-items: center;
+    align-self: center;
+
+    >.v-toolbar__content {
+      height: 79px !important;
+
+      .v-toolbar-title {
+        margin-inline: 16px !important;
+      }
+      
+      .v-toolbar-title__placeholder {
+        display: flex;
+        justify-content: space-between;
+
+        .img {
+          width: 160px;
+          height: 48px;
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          grid-gap: 15px;
+          font-size: 16px;
+          font-weight: 500;
+          color: $text_color;
+        }
+      }
+    }
+  }
+}

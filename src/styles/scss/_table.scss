@@ -1,0 +1,231 @@
+html {
+  body {
+    .table-container {
+      overflow-x: auto;
+
+      .table-title {
+        font-size: 20px;
+      }
+    }
+
+    .v-table {
+      margin-top: 0.25rem;
+      // height: 100%;
+      background-color: $white;
+      border: none;
+      // border: 1px solid $primary;
+      border-radius: 0.25rem;
+
+      .table_footer {
+        border-top: 1px solid $primary;
+        margin-bottom: 0;
+        background-color: $teble-footer-box-bg;
+        padding: 0.25rem 1rem;
+
+      }
+
+      .v-table__wrapper {
+        // height: 100%;
+
+        table {
+          //border-collapse: collapse;
+          thead {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+
+            &::after {
+              content: "";
+              position: absolute;
+              background-color: white;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              z-index: -1;
+
+            }
+
+            tr {
+              background-color: $table-header;
+              height: 64px;
+              font-size: 20px;
+
+              th {
+                padding: 0 16px;
+                color: $text_color_light;
+                background-color: transparent;
+                height: 2.5rem;
+                white-space: nowrap;
+                font-size: 20px;
+
+                // border: 1px $success solid;
+                // box-sizing: border-box;
+                // border-right: 1px solid $white;
+                // border-bottom: 1px solid $white;
+                // border-collapse: collapse;
+                &:last-child {
+                  border-right: 0;
+                }
+
+                .v-checkbox {
+                  .v-input__control {
+                    justify-content: center;
+                  }
+                }
+              }
+
+              &:hover {
+                border: 1px $success solid;
+                box-sizing: border-box;
+
+              }
+
+              &:nth-child(n+2) {
+                th {
+                  &:last-child {
+                    border-right: 1px solid $white;
+                  }
+                }
+              }
+
+            }
+          }
+
+          tbody {
+            .v-data-table__tr {
+              height: 64px;
+                &:nth-child(even) {
+                // 奇數
+                background-color: $table_td_bg_even;
+
+                &:hover {
+                    background-color: $table_td_bg_odd;
+                  span {
+                  color: $text_color_light;
+                  }
+                }
+                }
+
+                &:nth-child(odd) {
+                // 偶數
+                background-color: $table_td_bg_odd;
+
+                &:hover {
+                  background-color: $table-header;
+                  span {
+                  color: $text_color_light;
+                  }
+                }
+                }
+
+                &:hover {
+                background-color: $table-header;
+
+                span {
+                  color: $text_color_light;
+                }
+                }
+
+              &.active {
+                background-color: $warning;
+                color: $text_color_light;
+              }
+
+              td {
+                white-space: nowrap;
+                background: transparent;
+                font-weight: 400;
+                padding: 0 16px;
+                font-size: 20px;
+              }
+            }
+          }
+
+          td {
+            .v-checkbox {
+              .v-input__control {
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+
+      &.has_Pagination {
+        .v-table__wrapper {
+          height: calc(100% - 3rem);
+        }
+      }
+    }
+
+    .sql-area {
+      .v-card-text {
+        .v-table {
+          td {
+            &.selected {
+              background-image: none;
+              background-color: $button_sql_bg;
+              color: $text_color;
+            }
+          }
+        }
+      }
+
+      .col-view {
+        .v-card-text {
+          p {
+            &.selected {
+              background-image: none;
+              background-color: $button_sql_bg;
+              color: $text_color;
+            }
+          }
+        }
+      }
+    }
+
+    .has_checkbox {
+      .v-table__wrapper {
+        table {
+          thead {
+            tr {
+              th:first-child {
+                text-align: center;
+                vertical-align: middle;
+                padding-top: 5px;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              td:first-child {
+                padding: 0;
+                text-align: center;
+                vertical-align: middle;
+                padding-top: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.v-data-table-rows-loading,
+.v-data-table-rows-no-data {
+  height: 64px;
+}
+
+.v-data-table .v-table__wrapper>table>thead>tr>td.v-data-table-column--no-padding,
+.v-data-table .v-table__wrapper>table>thead>tr th.v-data-table-column--no-padding,
+.v-data-table .v-table__wrapper>table tbody>tr>td.v-data-table-column--no-padding,
+.v-data-table .v-table__wrapper>table tbody>tr th.v-data-table-column--no-padding {
+  padding: 0 24px !important;
+}
+
+html .v-data-table .v-table__wrapper>table>thead>tr>th:last-child.v-data-table__th--sortable:hover,
+html .v-data-table .v-table__wrapper>table tbody>tr>th:last-child.v-data-table__th--sortable:hover {
+  border-right: 0;
+}

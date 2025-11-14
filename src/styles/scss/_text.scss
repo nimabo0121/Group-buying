@@ -1,0 +1,22 @@
+.text_justify {
+  text-align: justify;
+  text-align-last: justify;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+strong.subtitle {
+  font-size: $h2_font_size;
+}
+
+#main_container {
+  margin: 40px auto;
+  color: #333;
+
+  .page-title {
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    font-family: "Noto Sans CJK TC";
+  }
+}
