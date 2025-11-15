@@ -4,9 +4,8 @@
 
 <script setup>
 import DefaultView from "@/layouts/default/Default.vue";
-import { GetInitialDataAPI } from "@/composables/JointAPI";
 import { computed, onMounted } from "vue";
-import { hostLog } from "@/composables/JointAPI.js";
+
 
 // const foo = computed(() => initialState.value)
 

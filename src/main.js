@@ -15,8 +15,6 @@ import { createApp } from "vue";
 
 // router
 import router from "./router";
-import { hostLog } from "@/composables/JointAPI.js";
-hostLog(`版本_v1.0`);
 
 const app = createApp(App);
 
