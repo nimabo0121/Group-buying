@@ -1,0 +1,517 @@
+// 主容器 - Mobile First
+.shopcontent {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding-bottom: 20px;
+}
+
+// 店家資訊區塊
+.shopTop {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .shopTopContent {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .shopblockimg {
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 3px solid #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+    }
+
+    .shopInfo {
+        flex: 1;
+        color: #ffffff;
+
+        .shopTitle {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+
+        .shopText {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+    }
+}
+
+// 中間內容區塊
+.shopbody {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #667eea;
+        margin-bottom: 16px;
+    }
+
+    // 許願池區塊
+    .wishpool {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+        .wishlist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wishlist-item {
+            position: relative;
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+                transform: translateY(-2px);
+            }
+
+            &.first-place {
+                background: linear-gradient(135deg, #fff9e6 0%, #fff5cc 100%);
+                border-left: 4px solid #ffc107;
+                box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+            }
+
+            .crown-icon {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                font-size: 28px;
+                z-index: 1;
+                animation: crownFloat 2s ease-in-out infinite;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            }
+
+            @keyframes crownFloat {
+                0%, 100% {
+                    transform: translateY(0) rotate(-10deg);
+                }
+                50% {
+                    transform: translateY(-5px) rotate(-10deg);
+                }
+            }
+
+            .wish-rank {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: #ffffff;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 14px;
+                flex-shrink: 0;
+            }
+
+            .wish-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .wish-title {
+                font-size: 15px;
+                color: #333;
+                font-weight: 500;
+                line-height: 1.5;
+            }
+
+            .wish-votes {
+                display: flex;
+                gap: 12px;
+            }
+
+            .vote-btn {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 8px 16px;
+                border: 2px solid #e0e0e0;
+                background: #ffffff;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+
+                .vote-icon {
+                    font-size: 18px;
+                }
+
+                .vote-count {
+                    font-weight: bold;
+                    color: #666;
+                }
+
+                &.vote-good {
+                    &:hover {
+                        background: #4caf50;
+                        border-color: #4caf50;
+                        transform: scale(1.05);
+
+                        .vote-icon,
+                        .vote-count {
+                            filter: grayscale(0);
+                        }
+
+                        .vote-count {
+                            color: #ffffff;
+                        }
+                    }
+
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+
+                &.vote-bad {
+                    &:hover {
+                        background: #f44336;
+                        border-color: #f44336;
+                        transform: scale(1.05);
+
+                        .vote-icon,
+                        .vote-count {
+                            filter: grayscale(0);
+                        }
+
+                        .vote-count {
+                            color: #ffffff;
+                        }
+                    }
+
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+            }
+        }
+    }
+
+    // 公告專區
+    .bulletin {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+        .bulletinlist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 400px;
+        }
+
+        .bulletinlist {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            .bulletin-icon {
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+
+            .bulletin-title {
+                flex: 1;
+                font-size: 15px;
+                color: #333;
+                font-weight: 500;
+            }
+
+            .bulletin-arrow {
+                font-size: 24px;
+                color: #999;
+                flex-shrink: 0;
+            }
+
+            &:hover, &:active {
+                background: #667eea;
+                transform: translateX(4px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+
+                .bulletin-title {
+                    color: #ffffff;
+                }
+
+                .bulletin-arrow {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        // 分頁樣式
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+
+            .pagination-btn {
+                width: 36px;
+                height: 36px;
+                border: 1px solid #ddd;
+                background: #ffffff;
+                border-radius: 6px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                color: #667eea;
+                font-weight: bold;
+
+                &:hover:not(:disabled) {
+                    background: #667eea;
+                    color: #ffffff;
+                    border-color: #667eea;
+                    transform: scale(1.1);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    opacity: 0.3;
+                    color: #999;
+                }
+            }
+
+            .page-number {
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #ddd;
+                background: #ffffff;
+                border-radius: 6px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                color: #333;
+                font-weight: 500;
+
+                &:hover {
+                    border-color: #667eea;
+                    color: #667eea;
+                    transform: scale(1.1);
+                }
+
+                &.active {
+                    background: #667eea;
+                    color: #ffffff;
+                    border-color: #667eea;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+// 活動專區輪播圖
+.shopbottom {
+    width: 100%;
+    padding: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #667eea;
+        margin-bottom: 16px;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+    }
+
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 16px 0;
+        background: #ffffff;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+            background: #667eea;
+            width: 24px;
+            border-radius: 5px;
+        }
+
+        &:hover {
+            background: #999;
+        }
+    }
+}
+
+// 平板以上 (768px+)
+@media (min-width: 768px) {
+    .shopTop {
+        padding: 30px 24px;
+
+        .shopblockimg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .shopInfo {
+            .shopTitle {
+                font-size: 28px;
+            }
+
+            .shopText {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .shopbody {
+        padding: 24px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+
+        .wishpool {
+            flex: 1;
+        }
+
+        .bulletin {
+            flex: 2;
+        }
+
+        .blockTitle {
+            font-size: 20px;
+        }
+    }
+
+    .shopbottom {
+        padding: 24px;
+
+        .carousel-item {
+            height: 300px;
+        }
+
+        .blockTitle {
+            font-size: 20px;
+        }
+    }
+}
+
+// 桌面 (1024px+)
+@media (min-width: 1024px) {
+    .shopTop {
+        padding: 40px 32px;
+
+        .shopblockimg {
+            width: 120px;
+            height: 120px;
+        }
+
+        .shopInfo {
+            .shopTitle {
+                font-size: 32px;
+            }
+
+            .shopText {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .shopbody {
+        padding: 32px;
+
+        .bulletinlist {
+            padding: 20px;
+
+            .bulletin-title {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .shopbottom {
+        padding: 32px;
+
+        .carousel-item {
+            height: 400px;
+        }
+    }
+}

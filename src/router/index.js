@@ -17,7 +17,14 @@ const routes = [
         name: "home",
         component: () => import("@/pages/index.vue"),
         meta: { title: "首頁" },
-      }],
+      },
+      {
+        path: "/shophome",
+        name: "shophome",
+        component: () => import("@/pages/shophome.vue"),
+        meta: { title: "商店首頁" },
+      },
+    ],
   },
 ];
 const router = createRouter({

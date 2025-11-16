@@ -1,0 +1,155 @@
+// 公告專區
+.bulletin {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #667eea;
+        margin-bottom: 16px;
+    }
+
+    .bulletinlist-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-height: 400px;
+    }
+
+    .bulletinlist {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #ffc107;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        .bulletin-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .bulletin-title {
+            flex: 1;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .bulletin-arrow {
+            font-size: 24px;
+            color: #999;
+            flex-shrink: 0;
+        }
+
+        &:hover, &:active {
+            background: #667eea;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+
+            .bulletin-title {
+                color: #ffffff;
+            }
+
+            .bulletin-arrow {
+                color: #ffffff;
+            }
+        }
+    }
+
+    // 分頁樣式
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+
+        .pagination-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #ddd;
+            background: #ffffff;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #667eea;
+            font-weight: bold;
+
+            &:hover:not(:disabled) {
+                background: #667eea;
+                color: #ffffff;
+                border-color: #667eea;
+                transform: scale(1.1);
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+                opacity: 0.3;
+                color: #999;
+            }
+        }
+
+        .page-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background: #ffffff;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+            font-weight: 500;
+
+            &:hover {
+                border-color: #667eea;
+                color: #667eea;
+                transform: scale(1.1);
+            }
+
+            &.active {
+                background: #667eea;
+                color: #ffffff;
+                border-color: #667eea;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// 平板以上 (768px+)
+@media (min-width: 768px) {
+    .bulletin {
+        .blockTitle {
+            font-size: 20px;
+        }
+    }
+}
+
+// 桌面 (1024px+)
+@media (min-width: 1024px) {
+    .bulletin {
+        .bulletinlist {
+            padding: 20px;
+
+            .bulletin-title {
+                font-size: 16px;
+            }
+        }
+    }
+}

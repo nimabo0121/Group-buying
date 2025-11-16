@@ -1,0 +1,108 @@
+// 懸浮下單按鈕 - 僅在手機版顯示
+.floating-order-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    transition: all 0.3s ease;
+
+    .order-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+        color: #ffffff;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(255, 82, 82, 0.5);
+        transition: all 0.3s ease;
+        white-space: nowrap;
+
+        .order-icon {
+            font-size: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .order-text {
+            letter-spacing: 1px;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 82, 82, 0.6);
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 15px rgba(255, 82, 82, 0.4);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-3px);
+        }
+    }
+}
+
+// 平板以上調整樣式
+@media (min-width: 768px) {
+    .floating-order-button {
+        bottom: 30px;
+        left: auto;
+        right: 30px;
+        transform: none;
+
+        .order-btn {
+            padding: 16px 40px;
+            font-size: 17px;
+            box-shadow: 0 6px 25px rgba(255, 82, 82, 0.4);
+
+            .order-icon {
+                font-size: 22px;
+            }
+
+            &:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 8px 30px rgba(255, 82, 82, 0.6);
+            }
+        }
+    }
+}
+
+// 桌面版 (1024px+)
+@media (min-width: 1024px) {
+    .floating-order-button {
+        bottom: 40px;
+        right: 40px;
+
+        .order-btn {
+            padding: 18px 48px;
+            font-size: 18px;
+
+            .order-icon {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+// 向下滾動時隱藏動畫
+.floating-order-button {
+    &:not(:hover) {
+        opacity: 1;
+    }
+}
+
+// 當按鈕不可見時
+.floating-order-button[style*="display: none"] {
+    pointer-events: none;
+}

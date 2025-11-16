@@ -36,24 +36,4 @@ const isHomePage = computed(() => route.path === '/');
 </script>
 
 <style lang="scss" scoped>
-html{
-
-  body {
-    .v-main {
-      --v-layout-top: 45px !important;
-      --v-layout-left: v-bind(isHomePage ? '0px !important' : '150px !important');
-      --v-layout-right: 30px !important;
-      padding-right: 0px;
-       &.home-page {
-         .v-main {
-      --v-layout-top: 45px !important;
-      --v-layout-left: 0px !important;
-      --v-layout-right: 30px !important;
-      padding-right: 0px;
-    }
-      }
-    }
-  }
-}
-
 </style>

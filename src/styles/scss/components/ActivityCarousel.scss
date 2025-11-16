@@ -1,0 +1,98 @@
+// 活動專區輪播圖
+.shopbottom {
+    width: 100%;
+    padding: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #667eea;
+        margin-bottom: 16px;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+    }
+
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 16px 0;
+        background: #ffffff;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.active {
+            background: #667eea;
+            width: 24px;
+            border-radius: 5px;
+        }
+
+        &:hover {
+            background: #999;
+        }
+    }
+}
+
+// 平板以上 (768px+)
+@media (min-width: 768px) {
+    .shopbottom {
+        padding: 24px;
+
+        .carousel-item {
+            height: 300px;
+        }
+
+        .blockTitle {
+            font-size: 20px;
+        }
+    }
+}
+
+// 桌面 (1024px+)
+@media (min-width: 1024px) {
+    .shopbottom {
+        padding: 32px;
+
+        .carousel-item {
+            height: 400px;
+        }
+    }
+}

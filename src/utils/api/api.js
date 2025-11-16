@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useSysStore } from "@/stores/sys";
-import { hostLog } from "@/composables/JointAPI.js";
 
 function createAxios(baseURLKey, createConfig = {}) {
   return async function (method, url, data = null, config) {
@@ -63,20 +62,12 @@ function createAxios(baseURLKey, createConfig = {}) {
           }
         );
          
-        hostLog(
-          `API: ${response?.config?.url} - Status: ${
-            response?.status
-          } - data: ${JSON.stringify(jsonStr)}`
-        );
+       
         // Do something with response data
         return response;
       },
       function (error) {
-        hostLog(
-          `API Error: ${error?.config?.url} - Status: ${
-            error?.response ? error?.response?.status : "No Response"
-          }- data: ${JSON.stringify(error?.response?.data)}`
-        );
+      
         // 客戶連線問題
         if (!window.navigator.onLine) {
           sysStore.setNotice("網路出了點問題，請重新連線後重整網頁");

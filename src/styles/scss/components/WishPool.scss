@@ -1,0 +1,169 @@
+// 許願池區塊
+.wishpool {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    .blockTitle {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #667eea;
+        margin-bottom: 16px;
+    }
+
+    .wishlist-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .wishlist-item {
+        position: relative;
+        display: flex;
+        gap: 12px;
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        &.first-place {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff5cc 100%);
+            border-left: 4px solid #ffc107;
+            box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+        }
+
+        .crown-icon {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 28px;
+            z-index: 1;
+            animation: crownFloat 2s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes crownFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+            50% {
+                transform: translateY(-5px) rotate(-10deg);
+            }
+        }
+
+        .wish-rank {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .wish-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .wish-title {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .wish-votes {
+            display: flex;
+            gap: 12px;
+        }
+
+        .vote-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: 2px solid #e0e0e0;
+            background: #ffffff;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+
+            .vote-icon {
+                font-size: 18px;
+            }
+
+            .vote-count {
+                font-weight: bold;
+                color: #666;
+            }
+
+            &.vote-good {
+                &:hover {
+                    background: #4caf50;
+                    border-color: #4caf50;
+                    transform: scale(1.05);
+
+                    .vote-icon,
+                    .vote-count {
+                        filter: grayscale(0);
+                    }
+
+                    .vote-count {
+                        color: #ffffff;
+                    }
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+
+            &.vote-bad {
+                &:hover {
+                    background: #f44336;
+                    border-color: #f44336;
+                    transform: scale(1.05);
+
+                    .vote-icon,
+                    .vote-count {
+                        filter: grayscale(0);
+                    }
+
+                    .vote-count {
+                        color: #ffffff;
+                    }
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+        }
+    }
+}
+
+// 平板以上 (768px+)
+@media (min-width: 768px) {
+    .wishpool {
+        .blockTitle {
+            font-size: 20px;
+        }
+    }
+}

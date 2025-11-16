@@ -11,7 +11,12 @@ const shopID = ref(null);
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search);
   shopID.value = urlParams.get('shopID');
-  console.log('Shop ID:', shopID.value);
+  // 跳轉到shophome頁面，並帶上shopID參數
+  if (shopID.value) {
+    window.location.href = `/shophome?shopID=${shopID.value}`;
+  }
+
+
 });
 
 

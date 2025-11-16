@@ -1,0 +1,88 @@
+// 店家資訊區塊
+.shopTop {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .shopTopContent {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .shopblockimg {
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 3px solid #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+    }
+
+    .shopInfo {
+        flex: 1;
+        color: #ffffff;
+
+        .shopTitle {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+
+        .shopText {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+    }
+}
+
+// 平板以上 (768px+)
+@media (min-width: 768px) {
+    .shopTop {
+        padding: 30px 24px;
+
+        .shopblockimg {
+            width: 100px;
+            height: 100px;
+        }
+
+        .shopInfo {
+            .shopTitle {
+                font-size: 28px;
+            }
+
+            .shopText {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+// 桌面 (1024px+)
+@media (min-width: 1024px) {
+    .shopTop {
+        padding: 40px 32px;
+
+        .shopblockimg {
+            width: 120px;
+            height: 120px;
+        }
+
+        .shopInfo {
+            .shopTitle {
+                font-size: 32px;
+            }
+
+            .shopText {
+                font-size: 18px;
+            }
+        }
+    }
+}

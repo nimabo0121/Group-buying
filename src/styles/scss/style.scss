@@ -1,19 +1,4 @@
 @use 'vuetify' with ($color-pack: '',
 );
-@import "variables";
-@import "base";
-
-@import "expansion-panel";
-@import "header";
-@import "text";
-@import "btn";
-@import "hover";
-@import "input";
-@import "page";
-@import "toolbar";
-@import "table";
-@import "form";
-@import "font";
 @import "dialog";
-@import "pagination";
-@import "PPB_style";
+@import "shopHome";

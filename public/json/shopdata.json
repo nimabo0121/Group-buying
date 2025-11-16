@@ -1,0 +1,69 @@
+{
+    "shopID": 1,
+    "shopName": "示範商店",
+    "use":["bulletin", "activity"],
+    "Data":[
+        {
+            "blockID": 1,
+            "blockKey": "shopHeader",
+            "blockImage": "/TCBBPPBWeb/images/山鯨logo.png",
+            "blockTitle": "店家名稱",
+            "blockText": "店家標語或介紹文字"
+        },
+        {
+            "blockID": 3,
+            "blockKey": "bulletin",
+            "blockName": "公告專區",
+            "blockContent": [
+                {
+                    "codeKey": "contentOne",
+                    "codeTitle": "特約商店優惠一覽"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                }
+            ]
+        },
+        {
+            "blockID": 4,
+            "blockKey": "activity",
+            "blockName": "活動專區",
+            "blockContents": [
+                {
+                    "codeKey":"contentOne",
+                    "contentImage":"basc64圖片"
+                },
+                {
+                    "codeKey":"contentTwo",
+                    "contentImage":"basc64圖片"
+                }
+            ]
+        }
+    ]
+
+
+
+
+
+}

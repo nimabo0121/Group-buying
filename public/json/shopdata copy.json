@@ -1,0 +1,94 @@
+{
+    "shopID": 1,
+    "shopName": "示範商店",
+    "use":["wishpool", "bulletin", "activity"],
+    "Data":[
+        {
+            "blockID": 1,
+            "blockKey": "shopHeader",
+            "blockImage": "/TCBBPPBWeb/images/山鯨logo.png",
+            "blockTitle": "店家名稱",
+            "blockText": "店家標語或介紹文字"
+        },
+        {
+            "blockID": 2,
+            "blockKey": "wishpool",
+            "blockName": "許願池",
+            "wish": [
+                {
+                    "codeKey": "wishOne",
+                    "codeTitle": "希望增加更多優惠活動",
+                    "good": 12,
+                    "bad": 3
+                },
+                {
+                    "codeKey": "wishTwo",
+                    "codeTitle": "希望增加更多商品種類",
+                    "good": 4,
+                    "bad": 3
+                },
+                {
+                    "codeKey": "wishThree",
+                    "codeTitle": "希望改善客服回應速度",
+                    "good": 15,
+                    "bad": 3
+                }
+            ]
+        },
+        {
+            "blockID": 3,
+            "blockKey": "bulletin",
+            "blockName": "公告專區",
+            "blockContent": [
+                {
+                    "codeKey": "contentOne",
+                    "codeTitle": "特約商店優惠一覽"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                },
+                {
+                    "codeKey": "contentTwo",
+                    "codeTitle": "最新秋季商品上架"
+                }
+            ]
+        },
+        {
+            "blockID": 4,
+            "blockKey": "activity",
+            "blockName": "活動專區",
+            "blockContents": [
+                {
+                    "codeKey":"contentOne",
+                    "contentImage":"basc64圖片"
+                },
+                {
+                    "codeKey":"contentTwo",
+                    "contentImage":"basc64圖片"
+                }
+            ]
+        }
+    ]
+
+
+
+
+
+}
