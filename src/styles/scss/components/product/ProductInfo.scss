@@ -1,0 +1,102 @@
+.product-info {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 0;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.product-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #ff5252;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.price-section {
+    padding: 16px 0;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-bottom: 8px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.discount-tag {
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.final-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.stock-info {
+    font-size: 15px;
+    font-weight: 500;
+    color: #4caf50;
+
+    &.out-of-stock {
+        color: #ff5252;
+    }
+}
+
+@media (min-width: 768px) {
+    .product-info {
+        padding: 32px;
+        border-radius: 12px;
+        margin: 20px;
+    }
+
+    .product-title {
+        font-size: 28px;
+    }
+
+    .product-description {
+        font-size: 16px;
+    }
+
+    .final-price {
+        font-size: 32px;
+    }
+}

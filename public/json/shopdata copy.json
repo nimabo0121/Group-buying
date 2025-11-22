@@ -6,7 +6,7 @@
         {
             "blockID": 1,
             "blockKey": "shopHeader",
-            "blockImage": "/TCBBPPBWeb/images/山鯨logo.png",
+            "blockImage": "/GroupWeb/images/山鯨logo.png",
             "blockTitle": "店家名稱",
             "blockText": "店家標語或介紹文字"
         },

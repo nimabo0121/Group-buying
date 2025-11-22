@@ -70,7 +70,7 @@ export default defineConfig({
       },
     },
   },
-  base:"/TCBBPPBWeb/"
+  base:"/GroupWeb/"
 })
 
 

@@ -24,6 +24,12 @@ const routes = [
         component: () => import("@/pages/shophome.vue"),
         meta: { title: "商店首頁" },
       },
+      {
+        path: "/shoporder",
+        name: "ShopOrder",
+        component: () => import("@/pages/shoporder.vue"),
+        meta: { title: "商店訂單" },
+      },
     ],
   },
 ];

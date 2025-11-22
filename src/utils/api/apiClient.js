@@ -24,6 +24,10 @@ export const Register = (data) => {
 
 // #region 測試ＡＰＩ
 export const ShopHomedata = (data) => {
-  return filereq("/TCBBPPBWeb/json/shopdata.json", data);
+  return filereq("/GroupWeb/json/shopdata.json", data);
 };
+// 商品資料
+export const Productdata = (data) => {
+  return filereq("/GroupWeb/json/product.json", data);
+}
 // #endregion

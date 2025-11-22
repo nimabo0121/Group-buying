@@ -1,0 +1,93 @@
+.spec-selector {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.spec-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+
+    .required {
+        color: #ff5252;
+        margin-left: 4px;
+    }
+}
+
+.spec-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.spec-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover {
+        border-color: #667eea;
+        background: #f5f6ff;
+    }
+
+    &.active {
+        border-color: #667eea;
+        background: linear-gradient(135deg, #f5f6ff 0%, #e8eaff 100%);
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+
+        .option-content::before {
+            content: '✓';
+            position: absolute;
+            left: -24px;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+}
+
+.option-content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 24px;
+}
+
+.option-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+.extra-price {
+    font-size: 15px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .spec-option {
+        padding: 18px 20px;
+    }
+
+    .option-label,
+    .extra-price {
+        font-size: 16px;
+    }
+}
