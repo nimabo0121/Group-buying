@@ -21,7 +21,8 @@
 
     "flashSale": {
       "enabled": true,
-      "endTime": "2025-12-25T23:59:59+08:00"
+      "startTime": "2025-11-01T00:00:00+08:00",
+      "endTime": "2025-12-10T23:59:59+08:00"
     },
 
     "badges": ["限量7組", "聖誕限定"],
@@ -29,7 +30,7 @@
     "specs": [
       {
         "id": "people",
-        "name": "人數",
+        "name": "品項",
         "required": true,
         "items": [
           { "label": "2人份", "value": "2", "extraPrice": 0 },
@@ -41,11 +42,8 @@
     "addons": [
       { "id": "a1", "name": "北海道干貝（2顆）", "price": 380 },
       { "id": "a2", "name": "飲料無限暢飲", "price": 199 }
-    ],
+    ]
 
-    "notesPlaceholder": "請告知用餐時間或特殊需求...",
 
-    "submitButtonText": "立刻搶購此方案",
-    "successMessage": "訂購成功！我們已為您保留～"
   }
 }

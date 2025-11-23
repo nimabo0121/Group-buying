@@ -1,13 +1,5 @@
 <template>
   <div class="shopcontent">
-    <!-- 店家資訊區塊 - 始終顯示 -->
-    <ShopHeader
-      v-if="shopID"
-      :shop-id="shopID"
-      @menu-click="handleMenuClick"
-      @shop-data-loaded="handleShopDataLoaded"
-    />
-
     <!-- 活動專區輪播圖 -->
     <ActivityCarousel
       v-if="isBlockVisible('activity') && activity"
@@ -38,19 +30,33 @@
 
     <!-- 懸浮下單按鈕 (僅手機版) -->
     <FloatingOrderButton
-      :shop-id="shopID"
+      :shop-id="shopId"
       @order-click="handleOrderClick"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import ShopHeader from "@/components/ShopHeader.vue";
+import { ref, computed, watch } from "vue";
 import WishPool from "@/components/WishPool.vue";
 import BulletinBoard from "@/components/BulletinBoard.vue";
 import ActivityCarousel from "@/components/ActivityCarousel.vue";
 import FloatingOrderButton from "@/components/FloatingOrderButton.vue";
+
+const props = defineProps({
+  shopId: {
+    type: [String, null],
+    required: true
+  },
+  productUuid: {
+    type: [String, null],
+    default: null
+  },
+  shopFullData: {
+    type: Object,
+    default: null
+  }
+});
 
 // 資料儲存
 const wishpool = ref(null); // blockID: 2 - 許願池
@@ -58,16 +64,10 @@ const bulletin = ref(null); // blockID: 3 - 公告專區
 const activity = ref(null); // blockID: 4 - 活動專區
 const useBlocks = ref([]); // 可顯示的區塊清單
 
-// 取得網址後面shopID=value
-const shopID = ref(null);
-
-onMounted(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  shopID.value = urlParams.get("shopID");
-});
-
-// 處理 ShopHeader 載入完成的資料
-const handleShopDataLoaded = ({ fullData }) => {
+// 處理店家完整資料
+const processShopData = (fullData) => {
+  if (!fullData) return;
+  
   console.log("ShopHomedataAPI-res:", fullData);
   
   // 儲存可顯示的區塊清單
@@ -89,6 +89,11 @@ const handleShopDataLoaded = ({ fullData }) => {
     }
   });
 };
+
+// 監聽 shopFullData 變化
+watch(() => props.shopFullData, (newData) => {
+  processShopData(newData);
+}, { immediate: true });
 
 // 檢查區塊是否可顯示 (使用 blockKey)
 const isBlockVisible = (blockKey) => {
@@ -138,24 +143,12 @@ const handleBulletinClick = (codeKey) => {
 
 // 處理下單按鈕點擊
 const handleOrderClick = () => {
-  console.log("前往下單頁面", { shopID: shopID.value });
+  console.log("前往下單頁面", { shopID: props.shopId });
   // 這裡可以加入路由跳轉到下單頁面
-  // 例如: router.push({ name: 'order', params: { shopID: shopID.value } })
+  // 例如: router.push({ name: 'order', params: { shopID: props.shopId } })
 };
 
-// 處理選單點擊
-const handleMenuClick = (action) => {
-  console.log("選單點擊:", action);
-  if (action === 'profile') {
-    // 前往個人資料頁面
-    console.log("前往個人資料");
-    // router.push({ name: 'profile' })
-  } else if (action === 'orders') {
-    // 前往訂單紀錄頁面
-    console.log("前往訂單紀錄");
-    // router.push({ name: 'orders' })
-  }
-};
+
 </script>
 
 <style lang="scss" scoped>

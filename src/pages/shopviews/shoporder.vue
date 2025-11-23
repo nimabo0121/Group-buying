@@ -1,12 +1,5 @@
 <template>
   <div class="shop-order-page">
-    <!-- 店家資訊區塊 -->
-    <ShopHeader
-      v-if="shopID"
-      :shop-id="shopID"
-      @menu-click="handleMenuClick"
-    />
-
     <!-- Loading -->
     <div
       v-if="loading"
@@ -109,9 +102,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { Productdata } from '@/utils/api/apiClient';
-import ShopHeader from '@/components/ShopHeader.vue';
 import ProductCarousel from '@/components/product/ProductCarousel.vue';
 import ProductInfo from '@/components/product/ProductInfo.vue';
 import QuantitySelector from '@/components/product/QuantitySelector.vue';
@@ -119,8 +111,20 @@ import SpecSelector from '@/components/product/SpecSelector.vue';
 import AddonSelector from '@/components/product/AddonSelector.vue';
 import CountdownBanner from '@/components/product/CountdownBanner.vue';
 
-const shopID = ref(new URLSearchParams(window.location.search).get('shopID'));
-const uuid = ref(new URLSearchParams(window.location.search).get('name'));
+const props = defineProps({
+  shopId: {
+    type: [String, null],
+    required: true
+  },
+  productUuid: {
+    type: [String, null],
+    required: true
+  },
+  shopFullData: {
+    type: Object,
+    default: null
+  }
+});
 
 const loading = ref(true);
 const submitting = ref(false);
@@ -130,7 +134,7 @@ const selectedSpecs = ref({});
 const selectedAddons = ref([]);
 
 // 預設文字
-const defaultSubmitButtonText = '立刻搶購此方案';
+const defaultSubmitButtonText = '立刻下單';
 const defaultSuccessMessage = '訂購成功！我們已為您保留～';
 
 // 計算屬性
@@ -209,33 +213,37 @@ const orderButtonDisabledReason = computed(() => {
   return '';
 });
 
-// 生命週期
-onMounted(async () => {
+// 載入商品資料
+const loadProductData = async () => {
+  loading.value = true;
   try {
-    // 呼叫 API 取得商品資訊
-    const res = await Productdata(shopID.value, uuid.value);
+    const res = await Productdata(props.shopId, props.productUuid);
     product.value = res.data.product;
+    
+    // 重置選擇狀態
+    quantity.value = 1;
+    selectedSpecs.value = {};
+    selectedAddons.value = [];
   } catch (err) {
     console.error('載入失敗', err);
   } finally {
     loading.value = false;
   }
+};
+
+// 生命週期
+onMounted(() => {
+  loadProductData();
+});
+
+// 監聽 props 變化,重新載入商品
+watch(() => [props.shopId, props.productUuid], () => {
+  loadProductData();
 });
 
 // 方法
 const formatPrice = (n) => {
   return n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') || '0';
-};
-
-const handleMenuClick = (action) => {
-  console.log("選單點擊:", action);
-  if (action === 'profile') {
-    console.log("前往個人資料");
-    // router.push({ name: 'profile' })
-  } else if (action === 'orders') {
-    console.log("前往訂單紀錄");
-    // router.push({ name: 'orders' })
-  }
 };
 
 const submitOrder = () => {
@@ -245,8 +253,8 @@ const submitOrder = () => {
   setTimeout(() => {
     alert(product.value.successMessage || defaultSuccessMessage);
     console.log('訂單資料:', {
-      shopID: shopID.value,
-      uuid: uuid.value,
+      shopID: props.shopId,
+      uuid: props.productUuid,
       quantity: quantity.value,
       specs: selectedSpecs.value,
       addons: selectedAddons.value.map((a) => a.id || a.name),

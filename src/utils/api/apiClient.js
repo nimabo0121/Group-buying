@@ -30,4 +30,8 @@ export const ShopHomedata = (data) => {
 export const Productdata = (data) => {
   return filereq("/GroupWeb/json/product.json", data);
 }
+// 訂單資料
+export const OrdersData = (data) => {
+  return filereq("/GroupWeb/json/orders.json", data);
+}
 // #endregion

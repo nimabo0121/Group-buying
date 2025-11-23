@@ -1,0 +1,209 @@
+{
+  "orders": [
+    {
+      "orderID": "ORD20251123001",
+      "shopID": "1234",
+      "shopName": "山鯨燒肉",
+      "shopLogo": "/GroupWeb/images/shop-logo.png",
+      "orderDate": "2025-11-20T14:30:00+08:00",
+      "status": "shipped",
+      "statusText": "已出貨",
+      "trackingNumber": "7-11-12345678",
+      "totalAmount": 5990,
+      "items": [
+        {
+          "productID": "P001",
+          "productName": "聖誕限定‧A5和牛盛合套餐",
+          "productImage": "/GroupWeb/images/xmas-1.jpg",
+          "spec": "2人份",
+          "quantity": 1,
+          "price": 4992,
+          "addons": [
+            {
+              "name": "北海道干貝（2顆）",
+              "price": 380
+            },
+            {
+              "name": "飲料無限暢飲",
+              "price": 199
+            }
+          ]
+        }
+      ],
+      "deliveryInfo": {
+        "method": "7-11取貨",
+        "storeName": "統一超商-信義門市",
+        "storeAddress": "台北市信義區信義路五段7號",
+        "receiverName": "王小明",
+        "receiverPhone": "0912-345-678"
+      },
+      "timeline": [
+        {
+          "status": "ordered",
+          "statusText": "訂單成立",
+          "time": "2025-11-20T14:30:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "confirmed",
+          "statusText": "商家確認",
+          "time": "2025-11-20T15:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "preparing",
+          "statusText": "商家備貨中",
+          "time": "2025-11-21T10:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "shipped",
+          "statusText": "已出貨",
+          "time": "2025-11-22T14:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "delivered",
+          "statusText": "已送達門市",
+          "time": null,
+          "completed": false
+        }
+      ]
+    },
+    {
+      "orderID": "ORD20251122001",
+      "shopID": "5678",
+      "shopName": "美味蛋糕坊",
+      "shopLogo": "/GroupWeb/images/cake-logo.png",
+      "orderDate": "2025-11-22T09:15:00+08:00",
+      "status": "preparing",
+      "statusText": "備貨中",
+      "trackingNumber": null,
+      "totalAmount": 1580,
+      "items": [
+        {
+          "productID": "P002",
+          "productName": "草莓鮮奶油蛋糕",
+          "productImage": "/GroupWeb/images/cake-1.jpg",
+          "spec": "8吋",
+          "quantity": 1,
+          "price": 1280,
+          "addons": []
+        },
+        {
+          "productID": "P003",
+          "productName": "巧克力布朗尼",
+          "productImage": "/GroupWeb/images/brownie-1.jpg",
+          "spec": "6入裝",
+          "quantity": 1,
+          "price": 300,
+          "addons": []
+        }
+      ],
+      "deliveryInfo": {
+        "method": "宅配",
+        "address": "台北市大安區復興南路一段200號",
+        "receiverName": "李小華",
+        "receiverPhone": "0923-456-789"
+      },
+      "timeline": [
+        {
+          "status": "ordered",
+          "statusText": "訂單成立",
+          "time": "2025-11-22T09:15:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "confirmed",
+          "statusText": "商家確認",
+          "time": "2025-11-22T09:30:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "preparing",
+          "statusText": "商家備貨中",
+          "time": "2025-11-22T10:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "shipped",
+          "statusText": "已出貨",
+          "time": null,
+          "completed": false
+        },
+        {
+          "status": "delivered",
+          "statusText": "已送達",
+          "time": null,
+          "completed": false
+        }
+      ]
+    },
+    {
+      "orderID": "ORD20251121001",
+      "shopID": "9012",
+      "shopName": "手作咖啡館",
+      "shopLogo": "/GroupWeb/images/coffee-logo.png",
+      "orderDate": "2025-11-21T16:45:00+08:00",
+      "status": "delivered",
+      "statusText": "已完成",
+      "trackingNumber": "7-11-87654321",
+      "totalAmount": 850,
+      "items": [
+        {
+          "productID": "P004",
+          "productName": "精品咖啡豆組合",
+          "productImage": "/GroupWeb/images/coffee-1.jpg",
+          "spec": "半磅裝",
+          "quantity": 2,
+          "price": 400,
+          "addons": [
+            {
+              "name": "手沖壺",
+              "price": 50
+            }
+          ]
+        }
+      ],
+      "deliveryInfo": {
+        "method": "7-11取貨",
+        "storeName": "統一超商-敦化門市",
+        "storeAddress": "台北市松山區敦化北路155號",
+        "receiverName": "陳大明",
+        "receiverPhone": "0934-567-890"
+      },
+      "timeline": [
+        {
+          "status": "ordered",
+          "statusText": "訂單成立",
+          "time": "2025-11-21T16:45:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "confirmed",
+          "statusText": "商家確認",
+          "time": "2025-11-21T17:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "preparing",
+          "statusText": "商家備貨中",
+          "time": "2025-11-21T18:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "shipped",
+          "statusText": "已出貨",
+          "time": "2025-11-22T09:00:00+08:00",
+          "completed": true
+        },
+        {
+          "status": "delivered",
+          "statusText": "已送達門市",
+          "time": "2025-11-22T15:00:00+08:00",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}
