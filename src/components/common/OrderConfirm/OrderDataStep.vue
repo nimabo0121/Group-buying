@@ -1,13 +1,16 @@
 <!-- 步驟 1: 確認訂單資料 -->
 <template>
   <div>
-    <v-card-title class="text-h6 primary--text d-flex align-center">
+    <v-card-title
+      v-if="!compact"
+      class="text-h6 primary--text d-flex align-center"
+    >
       <v-icon class="mr-2">
         mdi-clipboard-text-outline
       </v-icon>
       確認訂單資料
     </v-card-title>
-    <v-card-text class="pa-4">
+    <v-card-text :class="compact ? 'pa-0' : 'pa-4'">
       <div class="order-summary">
         <div class="item">
           <span class="label">商品</span>
@@ -15,7 +18,7 @@
         </div>
         <div class="item">
           <span class="label">數量</span>
-          <span class="value">{{ orderData.quantity }} 份</span>
+          <span class="value">{{ orderData.quantity }}</span>
         </div>
         <div
           v-for="(val, key) in orderData.specs"
@@ -32,13 +35,16 @@
           <span class="label">加購</span>
           <span class="value">{{ orderData.addons?.map((a) => a.name).join(", ") }}</span>
         </div>
-        <div class="item total">
+        <!-- <div class="item total">
           <span class="label">總金額</span>
           <span class="value primary--text font-weight-bold">NT${{ formatPrice(orderData.total) }}</span>
-        </div>
+        </div> -->
       </div>
     </v-card-text>
-    <v-card-actions class="px-4 pb-4">
+    <v-card-actions
+      v-if="!compact"
+      class="px-4 pb-4"
+    >
       <v-btn
         variant="outlined"
         @click="handleCancel"
@@ -66,6 +72,10 @@ const props = defineProps({
   orderData: {
     type: Object,
     required: true
+  },
+  compact: {
+    type: Boolean,
+    default: false
   }
 })
 

@@ -1,13 +1,16 @@
 <!-- 步驟 3: 選擇取貨方式 -->
 <template>
   <div>
-    <v-card-title class="text-h6 primary--text d-flex align-center">
+    <v-card-title
+      v-if="!compact"
+      class="text-h6 primary--text d-flex align-center"
+    >
       <v-icon class="mr-2">
         mdi-map-marker-outline
       </v-icon>
       選擇取貨方式
     </v-card-title>
-    <v-card-text class="pa-4">
+    <v-card-text :class="compact ? 'pa-0' : 'pa-4'">
       <v-radio-group
         :model-value="pickupType"
         hide-details
@@ -166,7 +169,10 @@
         目前沒有可用的取貨方式
       </v-alert>
     </v-card-text>
-    <v-card-actions class="px-4 pb-4">
+    <v-card-actions
+      v-if="!compact"
+      class="px-4 pb-4"
+    >
       <v-btn
         variant="outlined"
         @click="$emit('prev')"
@@ -215,6 +221,10 @@ const props = defineProps({
   storeSettings: {
     type: Object,
     default: null
+  },
+  compact: {
+    type: Boolean,
+    default: false
   }
 })
 

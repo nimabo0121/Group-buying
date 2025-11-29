@@ -1,0 +1,18 @@
+{
+  "users":
+    {
+      "uuid": "user-001",
+      "lineUserId": "U1234567890abcdef1234567890abcdef",
+      "displayName": "王小明",
+      "pictureUrl": "https://profile.line-scdn.net/0h...",
+      "statusMessage": "Hello LINE!",
+      "profile": {
+        "name": "王小明",
+        "phone": "0912345678",
+        "address": "台北市中正區重慶南路一段122號"
+      },
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-11-20T14:22:00Z",
+      "isProfileComplete": true
+    }
+}

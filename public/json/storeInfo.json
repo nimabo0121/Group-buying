@@ -13,16 +13,15 @@
     "weekend": "11:00-19:00"
   },
   "settings": {
+    "storedValue": {
+      "enabled": true,
+      "label": "店家儲值金扣款",
+      "description": "使用店家儲值金進行扣款",
+      "icon": "mdi-wallet"
+    },
     "paymentMethods": {
-      "enabled": ["stored_value", "cash"],
+      "enabled": ["cash"],
       "options": [
-        {
-          "value": "stored_value",
-          "label": "店家儲值金扣款",
-          "description": "使用店家儲值金進行扣款",
-          "icon": "mdi-wallet",
-          "enabled": true
-        },
         {
           "value": "cash",
           "label": "現金付款",

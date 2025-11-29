@@ -1,13 +1,16 @@
 <!-- 步驟 4: 訂單確認 -->
 <template>
   <div>
-    <v-card-title class="text-h6 primary--text d-flex align-center">
+    <v-card-title
+      v-if="!compact"
+      class="text-h6 primary--text d-flex align-center"
+    >
       <v-icon class="mr-2">
         mdi-check-circle-outline
       </v-icon>
       訂單確認
     </v-card-title>
-    <v-card-text class="pa-4">
+    <v-card-text :class="compact ? 'pa-0' : 'pa-4'">
       <v-alert
         type="success"
         variant="tonal"
@@ -90,7 +93,10 @@
         </div>
       </div>
     </v-card-text>
-    <v-card-actions class="px-4 pb-4">
+    <v-card-actions
+      v-if="!compact"
+      class="px-4 pb-4"
+    >
       <v-btn
         variant="outlined"
         :disabled="submitting"
@@ -146,6 +152,10 @@ const props = defineProps({
     default: () => []
   },
   submitting: {
+    type: Boolean,
+    default: false
+  },
+  compact: {
     type: Boolean,
     default: false
   }

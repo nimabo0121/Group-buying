@@ -16,28 +16,39 @@
       :product-uuid="productUuid"
       :shop-full-data="shopFullData"
     />
-    <div
-      v-else
-      class="error-message"
-    >
+    <div v-else class="error-message">
       <p>缺少必要參數 shopID</p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import ShopHeader from '@/components/ShopHeader.vue';
-import ShopHome from './shophome.vue';
-import ShopOrder from './shoporder.vue';
+import { ref, computed, onMounted, watch } from "vue";
+import { useRouter } from "vue-router";
+import ShopHeader from "@/components/ShopHeader.vue";
+import ShopHome from "./shophome.vue";
+import ShopOrder from "./shoporder.vue";
+import { Userdata } from "@/utils/api/apiClient";
 
 const router = useRouter();
 
 const shopID = ref(null);
 const productUuid = ref(null);
 const shopFullData = ref(null);
-
+const UserdataInfo = ref(null);
+// 取得使用者資料
+const fetchUserdata = async () => {
+  try {
+    const res = await Userdata();
+    if(res.data.users){
+      UserdataInfo.value = res.data.users;
+      console.log("使用者資料:", UserdataInfo.value);
+      sessionStorage.setItem("userUUID", UserdataInfo.value.uuid);
+    }
+  } catch (error) {
+    console.error("取得使用者資料失敗:", error);
+  }
+};
 // 根據網址參數決定顯示哪個元件
 const currentComponent = computed(() => {
   return productUuid.value ? ShopOrder : ShopHome;
@@ -45,40 +56,44 @@ const currentComponent = computed(() => {
 
 const parseUrlParams = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  shopID.value = urlParams.get('shopID');
-  productUuid.value = urlParams.get('name');
+  shopID.value = urlParams.get("shopID");
+  productUuid.value = urlParams.get("name");
+  if (productUuid.value) {
+    sessionStorage.setItem("currentProductUUID", productUuid.value);
+  }
 };
 
 // 處理 ShopHeader 載入完成的資料
 const handleShopDataLoaded = ({ fullData }) => {
-  console.log('ShopHeader 資料載入完成:', fullData);
+  console.log("ShopHeader 資料載入完成:", fullData);
   shopFullData.value = fullData;
 };
 
 // 處理選單點擊
 const handleMenuClick = (action) => {
   console.log("選單點擊:", action);
-  if (action === 'profile') {
+  if (action === "profile") {
     console.log("前往個人資料");
     // router.push({ name: 'profile' })
-  } else if (action === 'orders') {
+  } else if (action === "orders") {
     console.log("前往訂單紀錄");
-    router.push({ name: 'official' })
+    router.push({ name: "official" });
   }
 };
 
 onMounted(() => {
   parseUrlParams();
-  
+  fetchUserdata();
+
   // 監聽 URL 變化
-  window.addEventListener('popstate', parseUrlParams);
+  window.addEventListener("popstate", parseUrlParams);
 });
 
 // 監聽 URL 參數變化
 watch([shopID, productUuid], () => {
-  console.log('當前頁面:', productUuid.value ? '商品頁' : '首頁', {
+  console.log("當前頁面:", productUuid.value ? "商品頁" : "首頁", {
     shopID: shopID.value,
-    productUuid: productUuid.value
+    productUuid: productUuid.value,
   });
 });
 </script>
@@ -94,7 +109,7 @@ watch([shopID, productUuid], () => {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  
+
   p {
     font-size: 18px;
     color: #ff5252;
