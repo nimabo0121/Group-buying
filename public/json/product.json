@@ -1,32 +1,25 @@
 {
   "shopID": "1234",
   "shopName": "山鯨燒肉",
-
   "product": {
     "uuid": "A7k9pL2mX8",
     "title": "聖誕限定‧A5和牛盛合套餐",
     "description": "日本空運A5和牛＋帝王蟹腳＋整隻波士頓龍蝦，僅此7組！",
-
     "images": [
       "/GroupWeb/images/xmas-1.jpg",
       "/GroupWeb/images/xmas-2.jpg",
       "/GroupWeb/images/xmas-3.jpg"
     ],
-
     "originalPrice": 12800,                    
-    "discountRate": 3.9,                       
-
+    "discountRate": 3.9,      
     "stock": 7,
     "maxQuantityPerOrder": 3,
-
     "flashSale": {
       "enabled": true,
       "startTime": "2025-11-01T00:00:00+08:00",
       "endTime": "2025-12-10T23:59:59+08:00"
     },
-
     "badges": ["限量7組", "聖誕限定"],
-
     "specs": [
       {
         "id": "people",
@@ -38,12 +31,9 @@
         ]
       }
     ],
-
     "addons": [
       { "id": "a1", "name": "北海道干貝（2顆）", "price": 380 },
       { "id": "a2", "name": "飲料無限暢飲", "price": 199 }
     ]
-
-
   }
 }
