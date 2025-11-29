@@ -1,0 +1,126 @@
+{
+  "storeId": "1234",
+  "storeName": "美食團購店",
+  "storeDescription": "提供優質團購商品",
+  "storeImage": "/images/store-logo.png",
+  "contact": {
+    "phone": "02-1234-5678",
+    "email": "contact@store.com",
+    "address": "台北市信義區信義路五段7號"
+  },
+  "businessHours": {
+    "weekday": "10:00-20:00",
+    "weekend": "11:00-19:00"
+  },
+  "settings": {
+    "paymentMethods": {
+      "enabled": ["stored_value", "cash"],
+      "options": [
+        {
+          "value": "stored_value",
+          "label": "店家儲值金扣款",
+          "description": "使用店家儲值金進行扣款",
+          "icon": "mdi-wallet",
+          "enabled": true
+        },
+        {
+          "value": "cash",
+          "label": "現金付款",
+          "description": "取貨時以現金付款",
+          "icon": "mdi-cash",
+          "enabled": true
+        },
+        {
+          "value": "credit_card",
+          "label": "信用卡付款",
+          "description": "線上信用卡付款",
+          "icon": "mdi-credit-card",
+          "enabled": false
+        },
+        {
+          "value": "line_pay",
+          "label": "LINE Pay",
+          "description": "使用LINE Pay付款",
+          "icon": "mdi-cash-multiple",
+          "enabled": false
+        }
+      ]
+    },
+    "pickupMethods": {
+      "inStore": {
+        "enabled": true,
+        "label": "到店取貨",
+        "description": "親自到店面領取商品",
+        "address": "台北市信義區信義路五段7號",
+        "note": "營業時間內皆可取貨"
+      },
+      "pickupPoints": {
+        "enabled": true,
+        "label": "定點取貨",
+        "description": "在指定地點領取商品",
+        "points": [
+          {
+            "id": "taipei101",
+            "name": "台北101",
+            "address": "台北市信義區信義路五段7號",
+            "description": "台北101大樓1樓服務台",
+            "availableDays": ["週一", "週三", "週五"],
+            "availableTime": "18:00-19:00",
+            "enabled": true
+          },
+          {
+            "id": "taichung_station",
+            "name": "台中火車站",
+            "address": "台中市中區台灣大道一段1號",
+            "description": "台中火車站東出口",
+            "availableDays": ["週二", "週四"],
+            "availableTime": "17:30-18:30",
+            "enabled": true
+          },
+          {
+            "id": "kaohsiung_port",
+            "name": "高雄港",
+            "address": "高雄市鼓山區蓬萊路17號",
+            "description": "高雄港碼頭廣場",
+            "availableDays": ["週六"],
+            "availableTime": "14:00-16:00",
+            "enabled": true
+          },
+          {
+            "id": "xinyi_plaza",
+            "name": "信義商圈",
+            "address": "台北市信義區松壽路11號",
+            "description": "新光三越百貨門口",
+            "availableDays": ["週日"],
+            "availableTime": "15:00-17:00",
+            "enabled": true
+          }
+        ]
+      },
+      "homeDelivery": {
+        "enabled": false,
+        "label": "宅配到府",
+        "description": "商品直接寄送到指定地址",
+        "shippingFee": 100,
+        "freeShippingThreshold": 1000
+      }
+    },
+    "orderSettings": {
+      "minOrderAmount": 0,
+      "maxOrderAmount": 50000,
+      "allowCancelOrder": true,
+      "cancelOrderDeadline": 24,
+      "autoConfirmHours": 72
+    }
+  },
+  "status": {
+    "isActive": true,
+    "isPaused": false,
+    "pauseReason": ""
+  },
+  "metadata": {
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-11-29T00:00:00Z",
+    "version": "1.0"
+  }
+}

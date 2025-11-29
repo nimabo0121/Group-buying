@@ -70,7 +70,7 @@ export default defineConfig({
       },
     },
   },
-  base:"/GroupWeb/"
+  base:"/GoodGoWeb/"
 })
 
 

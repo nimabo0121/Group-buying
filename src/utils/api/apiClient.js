@@ -24,14 +24,18 @@ export const Register = (data) => {
 
 // #region 測試ＡＰＩ
 export const ShopHomedata = (data) => {
-  return filereq("/GroupWeb/json/shopdata.json", data);
+  return filereq("/GoodGoWeb/json/shopdata.json", data);
 };
 // 商品資料
 export const Productdata = (data) => {
-  return filereq("/GroupWeb/json/product.json", data);
+  return filereq("/GoodGoWeb/json/product.json", data);
 }
 // 訂單資料
 export const OrdersData = (data) => {
-  return filereq("/GroupWeb/json/orders.json", data);
+  return filereq("/GoodGoWeb/json/orders.json", data);
+}
+// 下單資訊info
+export const storeInfo = (data) => {
+  return filereq("/GoodGoWeb/json/storeInfo.json", data);
 }
 // #endregion
