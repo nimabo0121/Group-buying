@@ -38,9 +38,11 @@ export const OrdersData = (data) => {
 export const storeInfo = (data) => {
   return filereq("/GoodGoWeb/json/storeInfo.json", data);
 }
+// user編輯資料data
 export const Userdata = (data) => {
   return filereq("/GoodGoWeb/json/userdata.json", data);
 }
+// user儲值金data
 export const ConsumerData = (data) => {
   return filereq("/GoodGoWeb/json/consumer.json", data);
 }

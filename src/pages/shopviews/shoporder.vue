@@ -69,6 +69,7 @@
     v-model="showConfirmDialog"
     :order-data="currentOrder"
     :payment-methods="paymentMethodsList"
+    :user-profile="userProfile"
     @submit="handleFinalSubmit"
     @closeOrderDialog="closeOrderDialog"
   />
@@ -95,6 +96,10 @@ const props = defineProps({
     required: true,
   },
   shopFullData: {
+    type: Object,
+    default: null,
+  },
+  userProfile: {
     type: Object,
     default: null,
   },

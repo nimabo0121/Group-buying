@@ -15,6 +15,7 @@
       :shop-id="shopID"
       :product-uuid="productUuid"
       :shop-full-data="shopFullData"
+      :user-profile="Userprofile"
     />
     <div v-else class="error-message">
       <p>缺少必要參數 shopID</p>
@@ -36,13 +37,17 @@ const shopID = ref(null);
 const productUuid = ref(null);
 const shopFullData = ref(null);
 const UserdataInfo = ref(null);
+const Userprofile = ref(null);
 // 取得使用者資料
 const fetchUserdata = async () => {
   try {
     const res = await Userdata();
     if(res.data.users){
       UserdataInfo.value = res.data.users;
+      Userprofile.value = res.data.users.profile;
       console.log("使用者資料:", UserdataInfo.value);
+      console.log("使用者個人資料:", Userprofile.value);
+      
       sessionStorage.setItem("userUUID", UserdataInfo.value.uuid);
     }
   } catch (error) {

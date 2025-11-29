@@ -21,7 +21,7 @@
       <v-divider />
 
       <!-- 一頁式抽屜卡片列表 -->
-      <v-card-text class="pa-0" style="max-height: 70vh; overflow-y: auto;">
+      <v-card-text class="pa-0" style="max-height: 80vh; overflow-y: auto;">
         <v-expansion-panels v-model="openPanels" multiple>
           <!-- 步驟 1: 訂單資料 -->
           <v-expansion-panel value="orderData">
@@ -110,7 +110,117 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
 
-          <!-- 步驟 4: 訂單確認 -->
+          <!-- 步驟 4: 取貨人資料 -->
+          <v-expansion-panel value="recipient">
+            <v-expansion-panel-title>
+              <div class="d-flex align-center">
+                <v-icon class="mr-3" color="primary">
+                  mdi-account-outline
+                </v-icon>
+                <div>
+                  <div class="font-weight-bold">取貨人資料</div>
+                  <div
+                    v-if="recipientInfo.name && recipientInfo.phone"
+                    class="text-caption text-medium-emphasis"
+                  >
+                    {{ recipientInfo.name }} - {{ recipientInfo.phone }}
+                  </div>
+                  <div v-else class="text-caption error--text">
+                    請選擇或填寫取貨人資料
+                  </div>
+                </div>
+              </div>
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pa-0">
+                <!-- 如果有 API 資料,顯示選擇卡片 -->
+                <div v-if="hasUserProfile" class="mb-4">
+                  <div class="text-subtitle-2 mb-3">選擇取貨人</div>
+                  <v-card
+                    :variant="useApiProfile ? 'elevated' : 'outlined'"
+                    :color="useApiProfile ? 'primary' : ''"
+                    class="recipient-card mb-3"
+                    @click="selectApiProfile"
+                  >
+                    <v-card-text class="d-flex align-center">
+                      <v-radio
+                        :model-value="useApiProfile"
+                        color="primary"
+                        hide-details
+                        readonly
+                      />
+                      <div class="ml-3 flex-grow-1">
+                        <div class="font-weight-bold">{{ props.userProfile.name }}</div>
+                        <div class="text-caption text-medium-emphasis">
+                          {{ props.userProfile.phone }}
+                        </div>
+                        <div class="text-caption text-medium-emphasis">
+                          {{ props.userProfile.address }}
+                        </div>
+                      </div>
+                      <v-icon v-if="useApiProfile" color="primary">
+                        mdi-check-circle
+                      </v-icon>
+                    </v-card-text>
+                  </v-card>
+
+                  <v-card
+                    :variant="!useApiProfile ? 'elevated' : 'outlined'"
+                    :color="!useApiProfile ? 'primary' : ''"
+                    class="recipient-card"
+                    @click="selectCustomProfile"
+                  >
+                    <v-card-text class="d-flex align-center">
+                      <v-radio
+                        :model-value="!useApiProfile"
+                        color="primary"
+                        hide-details
+                        readonly
+                      />
+                      <div class="ml-3">
+                        <div class="font-weight-bold">填寫其他收件人</div>
+                      </div>
+                      <v-spacer />
+                      <v-icon v-if="!useApiProfile" color="primary">
+                        mdi-check-circle
+                      </v-icon>
+                    </v-card-text>
+                  </v-card>
+                </div>
+
+                <!-- 自訂收件人表單 (當選擇填寫其他收件人或無 API 資料時顯示) -->
+                <div v-if="!useApiProfile || !hasUserProfile" class="custom-recipient-form">
+                  <div v-if="hasUserProfile" class="text-subtitle-2 mb-3 mt-4">填寫收件人資料</div>
+                  <v-text-field
+                    v-model="customRecipientInfo.name"
+                    label="取貨人姓名"
+                    variant="outlined"
+                    density="comfortable"
+                    class="mb-3"
+                    :rules="[v => !!v || '請輸入姓名']"
+                  />
+                  <v-text-field
+                    v-model="customRecipientInfo.phone"
+                    label="聯絡電話"
+                    variant="outlined"
+                    density="comfortable"
+                    class="mb-3"
+                    :rules="[v => !!v || '請輸入電話']"
+                  />
+                  <v-textarea
+                    v-model="customRecipientInfo.address"
+                    label="收件地址"
+                    variant="outlined"
+                    density="comfortable"
+                    rows="3"
+                    :rules="[v => !!v || '請輸入地址']"
+                  />
+                </div>
+              </div>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+
+          <!-- 步驟 5: 訂單確認 -->
           <!-- <v-expansion-panel value="confirmation">
             <v-expansion-panel-title>
               <div class="d-flex align-center">
@@ -219,6 +329,38 @@
                 <span class="label">取貨方式:</span>
                 <span class="value">{{ getPickupMethodLabel(pickupType) }}</span>
               </div>
+              
+              <!-- 定點取貨卡片顯示 -->
+              <div v-if="pickupType === 'pickup_point' && pickupPoint" class="mt-3 mb-2">
+                <v-card variant="tonal" color="primary">
+                  <v-card-text class="pa-3">
+                    <div class="d-flex align-center mb-2">
+                      <v-icon size="small" class="mr-2">mdi-map-marker</v-icon>
+                      <span class="font-weight-bold">{{ getPickupPointName(pickupPoint) }}</span>
+                    </div>
+                    <div class="text-caption text-medium-emphasis ml-6">
+                      {{ getPickupPointAddress(pickupPoint) }}
+                    </div>
+                    <div v-if="getPickupPointDetails(pickupPoint)" class="text-caption text-medium-emphasis ml-6 mt-1">
+                      {{ getPickupPointDetails(pickupPoint) }}
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </div>
+              
+              <v-divider class="my-3" />
+              <div class="summary-row">
+                <span class="label">取貨人:</span>
+                <span class="value">{{ recipientInfo.name }}</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">聯絡電話:</span>
+                <span class="value">{{ recipientInfo.phone }}</span>
+              </div>
+              <div class="summary-row">
+                <span class="label">收件地址:</span>
+                <span class="value">{{ recipientInfo.address }}</span>
+              </div>
               <v-divider class="my-3" />
               <div v-if="useStoredValue && currentStoredValueAmount > 0" class="summary-row">
                 <span class="label">原價:</span>
@@ -272,12 +414,13 @@ const userUuid = sessionStorage.getItem("userUUID");//取得 userUUID
 const props = defineProps({
   value: Boolean, // v-model
   orderData: { type: Object, default: null },
+  userProfile: { type: Object, default: null },
 });
 
 const emit = defineEmits(["update:value", "submit", "closeOrderDialog"]);
 
 // 控制哪些面板展開（預設全部展開）
-const openPanels = ref(["orderData", "payment", "pickup"]);
+const openPanels = ref(["orderData", "payment", "pickup", "recipient"]);
 const paymentMethod = ref(null);
 const pickupType = ref(null);
 const pickupPoint = ref(null);
@@ -287,6 +430,54 @@ const consumerData = ref(null);
 const showConfirmDialog = ref(false);
 const useStoredValue = ref(false);
 const currentStoredValueAmount = ref(0);
+const recipientInfo = ref({
+  name: "",
+  phone: "",
+  address: "",
+});
+const useApiProfile = ref(true); // 是否使用 API 資料
+const customRecipientInfo = ref({
+  name: "",
+  phone: "",
+  address: "",
+});
+
+// 檢查是否有使用者資料
+const hasUserProfile = computed(() => {
+  return props.userProfile && 
+         props.userProfile.name && 
+         props.userProfile.phone && 
+         props.userProfile.address;
+});
+
+// 選擇 API 資料
+const selectApiProfile = () => {
+  useApiProfile.value = true;
+  updateRecipientInfo();
+};
+
+// 選擇自訂資料
+const selectCustomProfile = () => {
+  useApiProfile.value = false;
+  updateRecipientInfo();
+};
+
+// 更新取貨人資料
+const updateRecipientInfo = () => {
+  if (useApiProfile.value && hasUserProfile.value) {
+    recipientInfo.value = {
+      name: props.userProfile.name,
+      phone: props.userProfile.phone,
+      address: props.userProfile.address,
+    };
+  } else {
+    recipientInfo.value = {
+      name: customRecipientInfo.value.name,
+      phone: customRecipientInfo.value.phone,
+      address: customRecipientInfo.value.address,
+    };
+  }
+};
 
 const fetchConsumerData = async () => {
   const data = {
@@ -398,6 +589,17 @@ const storeInfoAPI = async () => {
 
 onMounted(() => {
   storeInfoAPI();
+  // 初始化取貨人資料
+  if (hasUserProfile.value) {
+    useApiProfile.value = true;
+    recipientInfo.value = {
+      name: props.userProfile.name,
+      phone: props.userProfile.phone,
+      address: props.userProfile.address,
+    };
+  } else {
+    useApiProfile.value = false;
+  }
 });
 
 // 取得付款方式標籤
@@ -410,6 +612,33 @@ const getPaymentMethodLabel = (value) => {
 const getPickupMethodLabel = (value) => {
   const method = pickupMethodOptions.value.find((m) => m.value === value);
   return method ? method.label : value;
+};
+
+// 取得定點名稱
+const getPickupPointName = (pointId) => {
+  const point = pickupPoints.value.find((p) => p.value === pointId);
+  return point ? point.text : pointId;
+};
+
+// 取得定點地址
+const getPickupPointAddress = (pointId) => {
+  const point = pickupPoints.value.find((p) => p.value === pointId);
+  return point ? point.address : "";
+};
+
+// 取得定點詳細資訊
+const getPickupPointDetails = (pointId) => {
+  const point = pickupPoints.value.find((p) => p.value === pointId);
+  if (!point) return "";
+  
+  const details = [];
+  if (point.availableDays) {
+    details.push(`開放時間: ${point.availableDays}`);
+  }
+  if (point.availableTime) {
+    details.push(point.availableTime);
+  }
+  return details.join(" ");
 };
 
 // 計算最終金額（扣除儲值金後）
@@ -426,19 +655,52 @@ const formatPrice = (n) => n?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") |
 
 // 檢查是否可以送出訂單
 const canSubmit = computed(() => {
-  return paymentMethod.value && pickupType.value;
+  // 更新 recipientInfo 以確保最新狀態
+  updateRecipientInfo();
+  
+  // 基本驗證
+  const basicValid = (
+    paymentMethod.value &&
+    pickupType.value &&
+    recipientInfo.value.name &&
+    recipientInfo.value.phone &&
+    recipientInfo.value.address
+  );
+  
+  // 如果選擇定點取貨，必須選擇一個定點
+  if (pickupType.value === "pickup_point") {
+    return basicValid && !!pickupPoint.value;
+  }
+  
+  return basicValid;
 });
 
 // 關閉 dialog 重置
 const close = () => {
   emit("closeOrderDialog");
-  openPanels.value = ["orderData", "payment", "pickup"];
+  openPanels.value = ["orderData", "payment", "pickup", "recipient"];
   paymentMethod.value = null;
   pickupType.value = null;
   pickupPoint.value = null;
   showConfirmDialog.value = false;
   useStoredValue.value = false;
   currentStoredValueAmount.value = 0;
+  // 重置取貨人資料為初始值
+  if (hasUserProfile.value) {
+    useApiProfile.value = true;
+    recipientInfo.value = {
+      name: props.userProfile.name,
+      phone: props.userProfile.phone,
+      address: props.userProfile.address,
+    };
+  } else {
+    useApiProfile.value = false;
+    customRecipientInfo.value = {
+      name: "",
+      phone: "",
+      address: "",
+    };
+  }
 };
 
 // 最終送出
@@ -469,6 +731,11 @@ const confirmOrder = () => {
     pickupMethod: {
       type: pickupType.value,
       pointId: pickupType.value === "pickup_point" ? pickupPoint.value : null,
+    },
+    recipient: {
+      name: recipientInfo.value.name,
+      phone: recipientInfo.value.phone,
+      address: recipientInfo.value.address,
     },
   };
 
@@ -518,6 +785,16 @@ const confirmOrder = () => {
       text-align: right;
       font-weight: 500;
     }
+  }
+}
+
+.recipient-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
