@@ -1,10 +1,11 @@
 <template>
   <div class="shop-views">
     <!-- 店家資訊區塊 - 共用 -->
-    <ShopHeader
+    <OfficialHeader
       v-if="shopID"
       :shop-id="shopID"
-      @menu-click="handleMenuClick"
+      :user-data="UserdataInfo"
+      :consumer-data="consumerData"
       @shop-data-loaded="handleShopDataLoaded"
     />
 
@@ -25,19 +26,37 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from "vue";
-import { useRouter } from "vue-router";
-import ShopHeader from "@/components/ShopHeader.vue";
+import OfficialHeader from "@/components/OfficialHeader.vue";
 import ShopHome from "./shophome.vue";
 import ShopOrder from "./shoporder.vue";
-import { Userdata } from "@/utils/api/apiClient";
-
-const router = useRouter();
+import { Userdata,ConsumerData } from "@/utils/api/apiClient";
 
 const shopID = ref(null);
 const productUuid = ref(null);
 const shopFullData = ref(null);
 const UserdataInfo = ref(null);
 const Userprofile = ref(null);
+
+// get儲值金額
+const consumerData = ref(null);
+
+
+const fetchConsumerData = async () => {
+  const data = {
+    userUuid: sessionStorage.getItem("userUUID"),
+    shopId: shopID.value,
+    type: "single"
+  };
+  try {
+    const res = await ConsumerData(data);
+    if (res.data) {
+      consumerData.value = res.data;
+      console.log("消費者資料已載入:", consumerData.value);
+    }
+  } catch (error) {
+    console.error("取得消費者資料失敗:", error);
+  }
+};
 // 取得使用者資料
 const fetchUserdata = async () => {
   try {
@@ -66,24 +85,16 @@ const parseUrlParams = () => {
   if (productUuid.value) {
     sessionStorage.setItem("currentProductUUID", productUuid.value);
   }
+  if (shopID.value) {
+    sessionStorage.setItem("currentShopID", shopID.value);
+    fetchConsumerData();
+  }
 };
 
 // 處理 ShopHeader 載入完成的資料
 const handleShopDataLoaded = ({ fullData }) => {
   console.log("ShopHeader 資料載入完成:", fullData);
   shopFullData.value = fullData;
-};
-
-// 處理選單點擊
-const handleMenuClick = (action) => {
-  console.log("選單點擊:", action);
-  if (action === "profile") {
-    console.log("前往個人資料");
-    // router.push({ name: 'profile' })
-  } else if (action === "orders") {
-    console.log("前往訂單紀錄");
-    router.push({ name: "official" });
-  }
 };
 
 onMounted(() => {

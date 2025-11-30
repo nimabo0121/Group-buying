@@ -1,19 +1,26 @@
 {
-      "userUuid": "user-001",
-      "storedValues": [
-        {
-          "shopUuid": "1234",
-          "shopName": "山鯨",
-          "storedValueName": "山鯨幣",
-          "balance": 500,
-          "lastUpdated": "2024-11-25T14:30:00Z"
-        },
-        {
-          "shopUuid": "shop-002",
-          "shopName": "小明便當店",
-          "storedValueName": "便當金",
-          "balance": 1200,
-          "lastUpdated": "2024-11-28T10:15:00Z"
-        }
-      ]
+  "userUuid": "user-001",
+  "storedValues": [
+    {
+      "shopUuid": "1234",
+      "shopName": "山鯨",
+      "storedValueName": "山鯨幣",
+      "balance": 550,
+      "lastUpdated": "2024-11-25T14:30:00Z"
+    },
+    {
+      "shopUuid": "5678",
+      "shopName": "海洋咖啡",
+      "storedValueName": "海洋點數",
+      "balance": 120,
+      "lastUpdated": "2024-11-20T10:15:00Z"
+    },
+    {
+      "shopUuid": "9012",
+      "shopName": "森林麵包坊",
+      "storedValueName": "森林代幣",
+      "balance": 380,
+      "lastUpdated": "2024-11-28T16:45:00Z"
+    }
+  ]
 }

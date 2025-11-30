@@ -482,6 +482,8 @@ const updateRecipientInfo = () => {
 const fetchConsumerData = async () => {
   const data = {
     userUuid: userUuid,
+    shopId: shopId,
+    type: "single"
   };
   try {
     const res = await ConsumerData(data);
